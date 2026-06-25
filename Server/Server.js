@@ -16,7 +16,7 @@ app.use(
   cors({
     origin: [
       // "http://localhost:5173",
-      "https://task-flow-8vlaxbmiu-task-flow3.vercel.app"],
+      "https://task-flow-liart-delta.vercel.app"],
     credentials:
       true,
   })

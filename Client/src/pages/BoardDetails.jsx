@@ -94,7 +94,7 @@ const BoardDetails = () => {
 
     try {
       await axios.patch(
-        `http://localhost:5000/user/tasks/${taskId}/status`,
+        `${import.meta.env.VITE_API_URL}/user/tasks/${taskId}/status`,
         {
           status: newStatus,
         },

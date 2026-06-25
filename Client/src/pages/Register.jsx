@@ -119,7 +119,7 @@ const Register = () => {
           Already have an account?
 
           <Link
-            to="/login"
+            to="/"
             style={{color: 'var(--accent)', marginLeft: '8px', textDecoration: 'none'}}
           >
             Login

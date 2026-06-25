@@ -143,7 +143,7 @@ const BoardDetails = () => {
                 <div
                   ref={provided.innerRef}
                   {...provided.droppableProps}
-                  className="status-column"
+                  className="status-column mb-4"
                 >
                   <h2>To Do ({todo.length})</h2>
 

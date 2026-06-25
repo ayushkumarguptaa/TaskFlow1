@@ -1,7 +1,9 @@
 import { useAuth } from "../context/AuthContext";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const { user, logout } = useAuth();
   const [theme, setTheme] = useState(() =>
     localStorage.getItem("tf_theme") || "dark"
@@ -17,6 +19,11 @@ const Navbar = () => {
   const toggleTheme = () => {
     setTheme((current) => (current === "dark" ? "light" : "dark"));
   };
+
+  const handleLogout = async () => {
+  await logout();
+  navigate("/");
+};
 
   return (
     <header className="app-header">
@@ -55,7 +62,7 @@ const Navbar = () => {
 
         <span className="header-user">{user?.email}</span>
 
-        <button className="btn-ghost" onClick={logout}>
+        <button className="btn-ghost" onClick={handleLogout}>
           Logout
         </button>
       </div>

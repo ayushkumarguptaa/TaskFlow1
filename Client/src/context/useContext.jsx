@@ -6,6 +6,7 @@ import {
 } from "react";
 
 import axios from "axios";
+import { Navigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
@@ -45,13 +46,12 @@ export const AuthProvider = ({
 
   const logout = async () => {
     await axios.post(
-      `${import.meta.env.VITE_API_URL}/api/auth/logout`,
+      `${import.meta.env.VITE_API_URL}/user/auth/logout`,
       {},
       {
         withCredentials: true,
       }
     );
-
     setUser(null);
   };
 

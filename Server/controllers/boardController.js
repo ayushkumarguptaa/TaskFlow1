@@ -73,7 +73,7 @@ exports.deleteBoard = async (req, res) => {
       });
     }
 
-    await Task.deleteMany({boardId:id});
+    await Task.deleteMany({boardId:req.params.id});
     await board.deleteOne();
 
     res.json({

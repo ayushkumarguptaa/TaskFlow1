@@ -160,7 +160,7 @@ const BoardDetails = () => {
                               ref={provided.innerRef}
                               {...provided.draggableProps}
                               {...provided.dragHandleProps}
-                              className="task-row"
+                              className="task-row mb-2"
                               style={provided.draggableProps.style}
                             >
                               <TaskCard
@@ -204,7 +204,7 @@ const BoardDetails = () => {
                             ref={provided.innerRef}
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
-                            className="task-row"
+                            className="task-row mb-2"
                             style={provided.draggableProps.style}
                           >
                             <TaskCard
@@ -247,7 +247,7 @@ const BoardDetails = () => {
                             ref={provided.innerRef}
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
-                            className="task-row"
+                            className="task-row mb-2"
                             style={provided.draggableProps.style}
                           >
                             <TaskCard

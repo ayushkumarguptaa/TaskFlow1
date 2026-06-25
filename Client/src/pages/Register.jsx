@@ -48,7 +48,7 @@ const Register = () => {
       toast.success("Account created successfully");
       login(data.user);
 
-      navigate("/dashboard");
+      navigate("/");
     } catch (error) {
       toast.error(error.response?.data?.message || "Registration failed");
     } finally {

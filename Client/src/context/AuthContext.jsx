@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
@@ -9,7 +8,6 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const fetchUser = async () => {
-    const navigate = useNavigate();
     try {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API_URL}/user/me`,
@@ -35,20 +33,25 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = async () => {
-    try {
-      await axios.post(
-        `${import.meta.env.VITE_API_URL}/user/logout`,
-        {},
-        {
-          withCredentials: true,
-        }
-      );
-    } catch (error) {
-      console.log(error);
-    }
+  console.log("Logout clicked");
 
-    setUser(null);
-  };
+  try {
+    const res = await axios.post(
+      `${import.meta.env.VITE_API_URL}/user/auth/logout`,
+      {},
+      {
+        withCredentials: true,
+      }
+    );
+
+    console.log("Logout API Status:", res.status);
+  } catch (error) {
+    console.log(error);
+  }
+
+  console.log("Setting user to null");
+  setUser(null);
+};
 
   return (
     <AuthContext.Provider

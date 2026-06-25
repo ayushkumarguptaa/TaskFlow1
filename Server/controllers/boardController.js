@@ -1,4 +1,5 @@
 const Board = require("../models/Board");
+const Task = require("../models/Task");
 
 exports.createBoard = async (req, res) => {
   try {
@@ -72,6 +73,7 @@ exports.deleteBoard = async (req, res) => {
       });
     }
 
+    await Task.deleteMany({boardId:id});
     await board.deleteOne();
 
     res.json({

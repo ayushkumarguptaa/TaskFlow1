@@ -1,0 +1,217 @@
+Page 1/6
+ Full Stack Developer
+ Take-Home Assignment
+ TaskFlow - A Smart Task & Project Manager
+ Built with the MERN Stack + a Lightweight AI Assist
+Position
+Full Stack Developer (Fresher / Entry-Level)
+Duration
+2 - 3 Days
+Tech Stack
+React, Node.js/Express, MongoDB or PostgreSQL, REST APIs
+AI Feature
+Smart Due-Date / Effort Estimate (free-tier LLM API)
+Difficulty
+Beginner to Intermediate
+ CONFIDENTIAL - For evaluation purposes only
+
+
+Full Stack Developer Assignment | MERN
+Page 2/6
+1. Assignment Overview
+Build a full-stack task and project management application called "TaskFlow". The application
+should allow users to register and log in, create boards/projects, add tasks, organize them across
+status columns (e.g., To Do, In Progress, Done), set priorities and due dates, and track their work
+in a clean, responsive interface. Unlike a frontend-only project, you must design and build your
+own backend - a REST API, a database, and secure authentication - so that all data persists on
+the server and is scoped to the logged-in user.
+Think of this as a lightweight Trello / Asana built from scratch. On top of the core CRUD
+functionality, you will integrate one small AI feature: a Smart Due-Date / Effort Estimate helper
+that uses a free-tier LLM API (called from your backend) to suggest how much effort a task will take
+and a reasonable due date, which the user can accept or override.
+The goal is to evaluate how you reason across the full stack - data modelling, API design,
+authentication, frontend state, and a practical third-party (AI) integration - while shipping something
+clean, functional, and deployed.
+2. Objectives
+This assignment evaluates your skills in the following areas:
+- Backend development - designing REST APIs, routing, controllers, and middleware
+- Database design - schema/models, relationships, and CRUD operations
+- Authentication & security - registration, login, password hashing, JWT/sessions, protected
+routes
+- Frontend development - React components, hooks, state management, and routing
+- Full-stack integration - wiring frontend to backend, handling loading/error states
+- Third-party API integration - calling a free-tier LLM API securely from the server
+- Code quality - clean, modular, well-organized code across both client and server
+- Problem solving & UX - edge cases, validation, and a practical, user-friendly product
+3. Tech Stack Requirements
+Mandatory
+- Frontend: React.js (v18+) with functional components and hooks + React Router
+- Backend: Node.js with Express.js (REST API)
+- Database: MongoDB (Mongoose) or PostgreSQL/MySQL (your choice)
+- Authentication: JWT-based auth with hashed passwords (e.g., bcrypt)
+- HTTP client: Axios or Fetch API for frontend-to-backend requests
+- AI integration: One free-tier LLM API, called only from the backend (see Section 5)
+- Styling: CSS Modules / Tailwind CSS / Styled Components (choose one)
+Optional (Bonus Points)
+
+
+Full Stack Developer Assignment | MERN
+Page 3/6
+- TypeScript (frontend and/or backend)
+- React Query / TanStack Query for server-state management
+- Drag-and-drop between columns (e.g., dnd-kit, react-beautiful-dnd)
+- Input validation library (Zod / Joi / express-validator)
+- Docker setup, or basic unit/integration tests (Jest / React Testing Library / Supertest)
+- Chart or dashboard view (tasks by status/priority) using Chart.js or Recharts
+4. Backend, Database & API Requirements
+You must build your own backend that exposes a RESTful API and persists data in a database. All
+task and board data must be stored server-side and scoped to the authenticated user - do not use
+localStorage as the primary data store (it may be used only for the auth token or UI
+preferences).
+What We Expect
+- A clear data model: User, Board/Project, and Task (with relationships)
+- Full CRUD REST endpoints for boards and tasks (create, read, update, delete)
+- Secure auth: register, login, hashed passwords, JWT issued on login, protected routes via
+middleware
+- Ownership enforcement - a user can only view/modify their own boards and tasks
+- Proper HTTP status codes and consistent JSON responses (including error responses)
+- Server-side validation of incoming data (required fields, valid enums for status/priority)
+- Clean project structure: separate routes / controllers / models / middleware folders
+- Environment variables (.env) for secrets - DB connection string, JWT secret, LLM API key
+Suggested Data Model (guidance, adapt as you see fit)
+- User: name, email (unique), passwordHash
+- Board: title, description, owner (User ref)
+- Task: title, description, status (todo / in-progress / done), priority (low / med / high), dueDate,
+estimatedEffort, board (ref), owner (ref), timestamps
+5. AI Feature - Smart Due-Date / Effort Estimate
+Integrate one small AI-powered feature. When a user creates or edits a task, they can click a
+"Suggest estimate" button. Your backend sends the task title and description to a free-tier LLM
+API and returns a suggested effort estimate (e.g., in hours or T-shirt size S/M/L) and/or a
+recommended due date. The suggestion is shown to the user, who can accept it (pre-filling the
+fields) or ignore it.
+Requirements
+- The LLM call must be made from the backend only - the API key must never reach the
+browser
+
+
+Full Stack Developer Assignment | MERN
+Page 4/6
+- Store the LLM API key in the backend .env and provide a .env.example
+- Return a clean, structured response (e.g., JSON with effort + suggested due date + short
+reasoning)
+- Handle the AI call gracefully: loading state, timeouts, and a friendly fallback if the API fails or
+the key is missing (the app must still work without AI)
+- Keep prompts and usage minimal - this is a lightweight assist, not a chatbot
+Free-tier / Trial LLM APIs (pick any one)
+You may use any free-tier or trial LLM API. The choice is yours - document which one you used
+and why in your README. Examples of providers with free or trial access:
+- Google Gemini API - generous free tier (e.g., gemini-2.0-flash); easiest to start
+- Groq - free, fast inference hosting open models (e.g., Llama)
+- OpenRouter - single key exposing several free (":free") models
+- Anthropic Claude (e.g., claude-haiku-4-5) or Cohere / Mistral - trial credits
+Note: Use only free-tier or trial access - do not incur paid charges. If you exhaust a trial, document
+it and provide a mock/fallback response so the feature can still be demonstrated.
+6. Feature Requirements
+6.1 Authentication
+- Register page (name, email, password) with validation and clear error messages
+- Login page issuing a JWT; persist the session so refresh keeps the user logged in
+- Logout functionality that clears the session
+- Protected routes - unauthenticated users are redirected to login
+6.2 Boards / Projects
+- Dashboard listing the logged-in user's boards as cards
+- Create, rename, and delete a board (delete with a confirmation prompt)
+- Empty state with a friendly message and CTA when the user has no boards
+6.3 Tasks & Board View
+- Board view with status columns: To Do, In Progress, Done
+- Create a task with title, description, priority, and due date
+- Edit and delete tasks; move a task between columns (button or drag-and-drop)
+- Each task card shows title, priority badge, due date, and effort estimate
+- Filter/sort tasks by priority or due date; visual cue for overdue tasks
+- "Suggest estimate" action that triggers the AI feature (Section 5)
+6.4 General / UI Requirements
+- Fully responsive design - works well on mobile, tablet, and desktop
+- A clean, consistent color palette and cohesive visual theme
+
+
+Full Stack Developer Assignment | MERN
+Page 5/6
+- Loading skeletons or spinners while data is fetched from your API
+- User-friendly error handling (network error, validation error, API/AI unavailable)
+- Dark mode / Light mode toggle (persist preference)
+- Clear navigation with links to all main pages and a custom 404 page
+7. Evaluation Criteria
+Your submission will be evaluated on the following criteria and weightage:
+#
+Criteria
+Weight
+What We Look For
+ 1
+Backend & API Design
+ 25%
+REST design, structure, status codes,
+validation
+ 2
+Authentication & Security
+ 15%
+Hashing, JWT, protected routes,
+ownership
+ 3
+Database & Data Modelling
+ 10%
+Sensible schema, relationships, CRUD
+ 4
+Frontend & UI/UX
+ 20%
+Responsiveness, clean UI, state handling
+ 5
+AI Feature Integration
+ 15%
+Secure server-side call, graceful fallback
+ 6
+Code Quality & Structure
+ 10%
+Clean, modular, readable across stack
+ 7
+Bonus Features
+ 5%
+Extra effort and creativity
+8. Submission Guidelines
+8.1 What to Submit
+1. Push your code to a public GitHub repository (frontend & backend - one repo or two, your
+choice)
+2. Include a detailed README.md (see checklist below)
+3. Deploy the app: frontend on Vercel/Netlify and backend on Render/Railway/Fly.io (free tier);
+include both live URLs
+4. Use a free hosted database (e.g., MongoDB Atlas / Neon / Supabase) for the deployed
+version
+5. Ensure .env is in .gitignore - do NOT commit any secrets or API keys
+8.2 README.md Must Include
+- Project title and a brief description of the app
+- Screenshots of key pages (Login, Dashboard, Board view, Mobile view)
+- Tech stack and libraries used (frontend, backend, database)
+- Step-by-step instructions to set up and run both frontend and backend locally
+- Environment variable setup with a .env.example (DB URI, JWT secret, LLM API key)
+- Which LLM API you chose and why, and how the AI feature works
+
+
+Full Stack Developer Assignment | MERN
+Page 6/6
+- API documentation - list of endpoints with method, path, and purpose
+- Live demo links (frontend & backend) and any test credentials
+- Known issues / limitations and what you would improve with more time
+8.3 Deadline
+You have 3 days (72 hours) from the time you receive this assignment to submit your work. Share
+the GitHub repository link and the deployed URLs via email.
+9. Bonus Challenges (Optional)
+Complete any of these for extra points. These are NOT required but will help you stand out:
+1. More AI: auto-suggest subtasks, auto-categorize/tag tasks, or a natural-language "add task"
+box
+2. Drag-and-drop: move tasks between columns with smooth drag-and-drop
+3. Dashboard/Analytics: charts for tasks by status, priority, or overdue count
+4. Search & filters: global task search with multiple filters
+5. Collaboration: share a board with another user (read or edit access)
+6. Activity log: track changes to tasks (created, moved, completed)
+7. Tests: a few backend integration tests (Supertest) and/or frontend tests
+8. Pagination: server-side pagination/filtering for large task lists
+ Good luck! We look forward to reviewing your work.
+ If you have any questions, feel free to reach out to your hiring contact.

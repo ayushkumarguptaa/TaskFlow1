@@ -14,11 +14,8 @@ console.log(err)
 })
 app.use(
   cors({
-    origin: [
-      // "http://localhost:5173",
-      "https://task-flow-liart-delta.vercel.app"],
-    credentials:
-      true,
+    origin: "https://task-flow-liart-delta.vercel.app",
+    credentials: true,
   })
 );
 app.use(cookieParser());

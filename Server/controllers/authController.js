@@ -123,17 +123,17 @@ exports.loginUser =
     }
   };
 
-exports.logoutUser =
-  (req, res) => {
-    res.clearCookie(
-      "token"
-    );
+exports.logoutUser = (req, res) => {
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+  });
 
-    res.json({
-      message:
-        "Logged out",
-    });
-  };
+  res.status(200).json({
+    message: "Logged out successfully",
+  });
+};
 
 exports.getCurrentUser =
   async (

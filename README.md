@@ -333,9 +333,9 @@ http://localhost:5173
 ## Authentication
 
 ```http
-POST   /api/auth/register
-POST   /api/auth/login
-GET    /api/auth/profile
+POST   /user/auth/register
+POST   /user/auth/login
+GET    /user/auth/profile
 ```
 
 ---
@@ -343,7 +343,7 @@ GET    /api/auth/profile
 ## Dashboard
 
 ```http
-GET    /api/dashboard
+GET    /user/dashboard
 ```
 
 ---
@@ -351,10 +351,10 @@ GET    /api/dashboard
 ## Boards
 
 ```http
-GET      /api/boards
-POST     /api/boards
-PUT      /api/boards/:id
-DELETE   /api/boards/:id
+GET      /user/boards
+POST     /user/boards
+PUT      /user/boards/:id
+DELETE   /user/boards/:id
 ```
 
 ---
@@ -362,11 +362,11 @@ DELETE   /api/boards/:id
 ## Tasks
 
 ```http
-GET      /api/tasks/:boardId
-POST     /api/tasks
-PUT      /api/tasks/:id
-DELETE   /api/tasks/:id
-PATCH    /api/tasks/move
+GET      /user/tasks/:boardId
+POST     /user/tasks
+PUT      /user/tasks/:id
+DELETE   /user/tasks/:id
+PATCH    /user/tasks/move
 ```
 
 ---
@@ -374,7 +374,7 @@ PATCH    /api/tasks/move
 ## AI
 
 ```http
-POST    /api/ai/generate
+POST    /user/ai/generate
 ```
 
 ---
@@ -406,7 +406,10 @@ POST    /api/ai/generate
 
 # Screenshots
 
-Add screenshots here.
+## Register
+
+![User Can Register](https://github.com/user-attachments/assets/1cf07f7d-63ca-4a2e-b1c9-023c6daa83a6)
+
 
 ```text
 screenshots/

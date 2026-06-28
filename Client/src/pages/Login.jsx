@@ -35,9 +35,9 @@ const Login = () => {
           withCredentials: true,
         }
       );
+
       toast.success("Login Successful");
       login(data.user);
-
       navigate("/");
     } catch (error) {
       toast.error(error.response?.data?.message || "Login failed");
@@ -47,15 +47,129 @@ const Login = () => {
   };
 
   return (
-    <div style={{minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f1f5f9'}}>
-      <div className="card" style={{width: '100%', maxWidth: '420px', boxShadow: '0 10px 25px rgba(0,0,0,0.1)'}}>
-        <h1 style={{fontSize: '28px', fontWeight: 'bold', textAlign: 'center', marginBottom: '24px'}}>
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        position: "relative",
+        overflow: "hidden",
+        background:
+          "linear-gradient(135deg, #020617 0%, #0f172a 45%, #1e293b 100%)",
+      }}
+    >
+      {/* Grid Pattern */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)
+          `,
+          backgroundSize: "50px 50px",
+        }}
+      />
+
+      {/* Blue Glow */}
+      <div
+        style={{
+          position: "absolute",
+          width: "450px",
+          height: "450px",
+          borderRadius: "50%",
+          background: "#2563eb",
+          filter: "blur(140px)",
+          opacity: 0.25,
+          top: "-120px",
+          left: "-120px",
+        }}
+      />
+
+      {/* Purple Glow */}
+      <div
+        style={{
+          position: "absolute",
+          width: "380px",
+          height: "380px",
+          borderRadius: "50%",
+          background: "#7c3aed",
+          filter: "blur(140px)",
+          opacity: 0.22,
+          bottom: "-120px",
+          right: "-120px",
+        }}
+      />
+
+      {/* Cyan Glow */}
+      <div
+        style={{
+          position: "absolute",
+          width: "250px",
+          height: "250px",
+          borderRadius: "50%",
+          background: "#06b6d4",
+          filter: "blur(120px)",
+          opacity: 0.18,
+          top: "45%",
+          left: "15%",
+        }}
+      />
+
+      {/* Floating Dots */}
+      <div
+        style={{
+          position: "absolute",
+          top: "18%",
+          left: "22%",
+          width: "10px",
+          height: "10px",
+          borderRadius: "50%",
+          background: "#8b5cf6",
+          boxShadow: "0 0 15px #8b5cf6",
+        }}
+      />
+
+      <div
+        style={{
+          position: "absolute",
+          bottom: "18%",
+          right: "20%",
+          width: "12px",
+          height: "12px",
+          borderRadius: "50%",
+          background: "#3b82f6",
+          boxShadow: "0 0 18px #3b82f6",
+        }}
+      />
+
+      {/* Login Card */}
+      <div
+        className="card pl-4"
+        style={{
+          width: "100%",
+          maxWidth: "420px",
+          zIndex: 10,
+          boxShadow: "0 25px 60px rgba(0,0,0,0.45)",
+        }}
+      >
+        <h1
+          style={{
+            fontSize: "28px",
+            fontWeight: "bold",
+            textAlign: "center",
+            marginBottom: "24px",
+          }}
+        >
           Login
         </h1>
 
         <form onSubmit={handleSubmit}>
-          <div style={{marginBottom: '16px'}}>
-            <label style={{display: 'block', marginBottom: '8px'}}>Email</label>
+          <div style={{ marginBottom: "16px" }}>
+            <label style={{ display: "block", marginBottom: "8px" }}>
+              Email
+            </label>
 
             <input
               type="email"
@@ -63,13 +177,15 @@ const Login = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              style={{width: '100%'}}
               placeholder="Enter email"
+              style={{ width: "100%" }}
             />
           </div>
 
-          <div style={{marginBottom: '16px'}}>
-            <label style={{display: 'block', marginBottom: '8px'}}>Password</label>
+          <div style={{ marginBottom: "16px" }}>
+            <label style={{ display: "block", marginBottom: "8px" }}>
+              Password
+            </label>
 
             <input
               type="password"
@@ -77,26 +193,34 @@ const Login = () => {
               value={formData.password}
               onChange={handleChange}
               required
-              style={{width: '100%'}}
               placeholder="Enter password"
+              style={{ width: "100%" }}
             />
           </div>
 
           <button
             disabled={loading}
             className="btn"
-            style={{width: '100%'}}
+            style={{ width: "100%" }}
           >
             {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 
-        <p style={{textAlign: 'center', marginTop: '16px'}}>
+        <p
+          style={{
+            textAlign: "center",
+            marginTop: "18px",
+          }}
+        >
           Don't have an account?
-
           <Link
             to="/register"
-            style={{color: 'var(--accent)', marginLeft: '8px', textDecoration: 'none'}}
+            style={{
+              color: "var(--accent)",
+              marginLeft: "8px",
+              textDecoration: "none",
+            }}
           >
             Register
           </Link>

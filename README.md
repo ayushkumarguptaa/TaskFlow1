@@ -390,7 +390,7 @@ POST    /api/ai/generate
 
 ---
 
-# 🚀 Deployment
+# Deployment
 
 | Service  | Platform      |
 | -------- | ------------- |
@@ -444,8 +444,8 @@ screenshots/
 
 **MERN Stack Developer**
 
-* GitHub: https://github.com/your-github-username
-* LinkedIn: https://linkedin.com/in/your-linkedin-profile
+* GitHub: https://github.com/ayushkumarguptaa
+* LinkedIn: https://linkedin.com/in/ayush-kumar-guptaa
 
 ---
 

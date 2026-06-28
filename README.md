@@ -467,7 +467,3 @@ AI can Estimate Date & Hours for Particular task while adding and editing the ta
 * LinkedIn: https://linkedin.com/in/ayush-kumar-guptaa
 
 ---
-
-## License
-
-This project is licensed under the **MIT License**.

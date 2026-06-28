@@ -406,22 +406,31 @@ POST    /user/ai/generate
 
 # Screenshots
 
-## Register
+## Register Page
+
+User Can Register
 
 ![User Can Register](https://github.com/user-attachments/assets/1cf07f7d-63ca-4a2e-b1c9-023c6daa83a6)
 
+##Login Page
 
-```text
-screenshots/
-│
-├── register.png
-├── login.png
-├── dashboard.png
-├── board-details.png
-├── create-board.png
-├── create-task.png
-└── ai-task-generator.png
-```
+User can while  they visit
+
+![User can while  they visit](https://github.com/user-attachments/assets/c267d728-f11f-461e-b9de-97ae9c4db4c0)
+
+##Create Board
+
+User Can Create Board After Login
+
+![User Can Create Board After Login](https://github.com/user-attachments/assets/d8d69c7c-2767-4c07-a303-3b3c0ad8b018)
+![User Can Create Board After Login](https://github.com/user-attachments/assets/366b2d3c-7d51-4c12-969f-926ae3706e7c)
+
+##Task Board
+
+User Can Add Task After Creating Board
+
+![User Can Add Task After Creating Board](https://github.com/user-attachments/assets/e4e8e7c3-459c-42f8-bc63-c2eed08f3a69)
+![User Can Add Task After Creating Board](https://github.com/user-attachments/assets/f91c7549-c16d-440d-a436-027df6c46d9a)
 
 ---
 
